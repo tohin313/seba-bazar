@@ -1,34 +1,20 @@
-SEBA BAZAR — BANGLADESH-WIDE NEXT.JS / VERCEL PRODUCTION MVP
+SEBA BAZAR — Vercel Production Setup
 
-PROJECT SCOPE
-- Platform scope: ALL BANGLADESH.
-- Launch market: COX'S BAZAR.
-- The website is NOT limited to Cox's Bazar.
-- The interface uses Bangladesh-wide wording and location selection.
-- Cox's Bazar is shown only as the initial launch/operational market.
-- Future districts/cities can be activated without redesigning the core platform.
-
-DEPLOY
-1. Put the contents of this folder at the ROOT of a GitHub repository.
-2. Import the repository into Vercel.
-3. Use Node 20.9+.
-4. Create a Neon/PostgreSQL database and add DATABASE_URL in Vercel Environment Variables.
-5. Run schema.sql once against the database.
-6. Add:
-   ADMIN_USERNAME=your-admin-username
-   ADMIN_PASSWORD=a-long-random-password
-   ADMIN_SESSION_SECRET=a-long-random-secret
-7. Deploy.
-8. Test:
+1. Connect the GitHub repository to Vercel.
+2. Connect the existing Neon database to the Vercel project.
+3. The application accepts DATABASE_URL, POSTGRES_URL, or POSTGRES_URL_NON_POOLING.
+4. In Neon SQL Editor, run schema.sql once.
+5. In Vercel > Environment Variables > Production, set:
+   ADMIN_USERNAME
+   ADMIN_PASSWORD
+   ADMIN_SESSION_SECRET
+6. Redeploy after changing environment variables.
+7. Test:
    /api/health
    /request
    /track
    /admin/login
 
-DATABASE
-This project uses @neondatabase/serverless and DATABASE_URL. Do not commit secrets.
-
-IMPORTANT
-- This is a production-oriented MVP, not a claim of legal/commercial completeness.
-- Before public advertising, add CAPTCHA/Turnstile, stronger rate limiting/WAF, monitoring, backup/retention, real business contact information, and a legal review of Privacy/Terms/Refund policies.
-- Payment gateway and WhatsApp/SMS automation can be added after the request workflow is validated.
+IMPORTANT:
+- Never commit .env, passwords, or database secrets.
+- The Neon integration variables are secrets; do not expose their values publicly.
