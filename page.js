@@ -106,7 +106,7 @@ export default function Home() {
       <footer>
         <div className="wrap foot">
           <div>
-            <a className="brand">স সেবা বাজার<span>.</span>কম</a>
+            <a className="brand"> সেবা বাজার<span>.</span>কম</a>
             <p>আপনার প্রয়োজনের সেবা, এক জায়গায়।</p>
           </div>
           <div>
